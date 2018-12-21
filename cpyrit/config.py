@@ -33,7 +33,7 @@ def default_config():
               'rpc_announce_broadcast': 'false',
               'rpc_knownclients': '',
               'workunit_size': '75000',
-              'limit_ncpus': 0}
+              'limit_ncpus': -1}
     return config
 
 
