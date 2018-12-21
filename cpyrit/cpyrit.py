@@ -437,9 +437,16 @@ class CPyrit(object):
         if config.cfg['use_CUDA'] == 'true' and 'cpyrit._cpyrit_cuda' in sys.modules and config.cfg['use_OpenCL'] == 'false':
 
             CUDA = _cpyrit_cuda.listDevices()
+            use_device_idx = -1
+            if 'CUDA_device' in config.cfg:
+                use_device_idx = int(config.cfg['CUDA_device'])
 
             for dev_idx, device in enumerate(CUDA):
-                self.CUDAs.append(CUDACore(queue=self, dev_idx=dev_idx))
+                if use_device_idx >= 0:
+                    if use_device_idx == dev_idx:
+                        self.CUDAs.append(CUDACore(queue=self, dev_idx=dev_idx))
+                else:
+                    self.CUDAs.append(CUDACore(queue=self, dev_idx=dev_idx))
 
 
         # OpenCL
