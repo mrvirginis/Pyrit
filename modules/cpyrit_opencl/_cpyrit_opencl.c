@@ -40,7 +40,7 @@
 #include <Python.h>
 #include <structmember.h>
 #ifdef __APPLE__
-    #include <cl.h>
+    #include <OpenCL/cl.h>
 #else
     #include <CL/cl.h>
 #endif /* __APPLE__ */
