@@ -87,10 +87,7 @@ def _limit_ncpus():
         limited_ncpus = int(config.cfg['limit_ncpus'])
     except ValueError:
         raise ValueError("Invalid 'limit_ncpus' in configuration")
-    if limited_ncpus < 0:
-    #raise ValueError("Invalid 'limit_ncpus' in configuration")
-        return 0;
-    if 0 < limited_ncpus < detected_ncpus:
+    if 0 <= limited_ncpus < detected_ncpus:
         return limited_ncpus
     return detected_ncpus
 

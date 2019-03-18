@@ -27,13 +27,14 @@ import sys
 def default_config():
     config = {'default_storage': 'file://',
               'use_CUDA': 'false',
+              'CUDA_device': '-1',
               'use_OpenCL': 'false',
               'rpc_server': 'false',
               'rpc_announce': 'true',
               'rpc_announce_broadcast': 'false',
               'rpc_knownclients': '',
               'workunit_size': '75000',
-              'limit_ncpus': 0}
+              'limit_ncpus': -1}
     return config
 
 
